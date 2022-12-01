@@ -1,11 +1,11 @@
 .app-container {
   background-image: linear-gradient(to bottom, #9ba9eb, #c3caea);
-  height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: 40px;
   padding-left: 50px;
   font-family: 'Roboto';
+  padding-bottom: 40px;
 }
 
 .app-logo {
@@ -23,6 +23,7 @@
   padding-left: 50px;
   padding-right: 50px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .password-form {
   background-color: #454f84;
@@ -88,4 +89,115 @@
 .password-manager-icon {
   height: 380px;
   width: 300px;
+}
+
+.passwords-container {
+  background-color: #5763a5;
+  width: 900px;
+  border-radius: 6px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #b6c3ca;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+
+.your-password-text-container {
+  display: flex;
+  align-items: center;
+}
+.your-password-text {
+  color: #ffffff;
+  font-size: 20px;
+  margin-right: 8px;
+}
+.password-count {
+  background-color: transparent;
+  border: 1px solid #f8fafc;
+  color: #ffffff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-input-container {
+  background-color: #ffffff;
+  border-radius: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  width: 220px;
+}
+.search-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  border-right: 1px solid #454f84;
+  height: 100%;
+  margin-left: 10px;
+  padding-right: 10px;
+}
+.search-icon {
+  height: 20px;
+  width: 20px;
+}
+.search-input {
+  margin-left: 5px;
+  border: 0px;
+  outline: none;
+}
+
+.input-label-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.check-box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox-input {
+  height: 15px;
+  width: 15px;
+}
+.check-box-label {
+  color: #ffffff;
+  font-size: 16px;
+}
+.no-password-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.no-passwords-image {
+  height: 200px;
+  width: 300px;
+}
+.no-passwords-text {
+  color: #ffffff;
+  font-size: 28px;
+}
+
+.un-ordered-list {
+  padding-left: 0px;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
 }
