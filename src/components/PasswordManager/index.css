@@ -8,6 +8,11 @@
   padding-bottom: 40px;
 }
 
+@media screen and (max-width: 500px) {
+  .app-container {
+    padding: 15px;
+  }
+}
 .app-logo {
   height: 50px;
   width: 160px;
@@ -25,6 +30,17 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+@media screen and (max-width: 500px) {
+  .password-generator-container {
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 800px;
+    padding: 15px;
+  }
+}
+
 .password-form {
   background-color: #454f84;
   border-radius: 6px;
@@ -33,7 +49,15 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  order: 0;
 }
+@media screen and (max-width: 500px) {
+  .password-form {
+    width: 400px;
+    order: 1;
+  }
+}
+
 .heading {
   font-size: 24px;
   color: #ffffff;
@@ -66,6 +90,7 @@
   margin-left: 10px;
   border: 0px;
   outline: none;
+  width: 100%;
 }
 .btn-container {
   display: flex;
@@ -82,13 +107,50 @@
   outline: none;
   color: #ffffff;
 }
-.password-manager-icon-container {
-  margin-left: 30px;
+
+.password-manager-icon-container1 {
+  display: none;
 }
 
-.password-manager-icon {
+@media screen and (max-width: 500px) {
+  .password-manager-icon-container1 {
+    display: flex;
+  }
+}
+
+.password-manager-icon-container2 {
+  margin-left: 30px;
+  order: 1;
+}
+@media screen and (max-width: 500px) {
+  .password-manager-icon-container2 {
+    display: none;
+  }
+}
+
+.password-manager-icon1 {
+  height: 400px;
+  width: 400px;
+  order: 0;
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .password-manager-icon1 {
+    display: flex;
+    margin-bottom: 15px;
+  }
+}
+.password-manager-icon2 {
   height: 380px;
   width: 300px;
+  order: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .password-manager-icon2 {
+    display: none;
+  }
 }
 
 .passwords-container {
@@ -100,6 +162,13 @@
   padding-bottom: 40px;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 500px) {
+  .passwords-container {
+    width: 450px;
+    padding: 13px;
+  }
 }
 
 .password-container {
