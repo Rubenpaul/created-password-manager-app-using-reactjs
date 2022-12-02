@@ -9,9 +9,8 @@ class PasswordManager extends Component {
   state = {
     websiteInput: '',
     usernameInput: '',
-    passwordInput: '',
-    passwordCount: 0,
     searchInput: '',
+    isChecked: false,
     usersList: [],
   }
 
@@ -30,8 +29,6 @@ class PasswordManager extends Component {
   onClickSubmit = event => {
     event.preventDefault()
 
-    console.log('triggered')
-
     const {websiteInput, usernameInput, passwordInput} = this.state
 
     const newUser = {
@@ -43,7 +40,6 @@ class PasswordManager extends Component {
 
     this.setState(prevState => ({
       usersList: [...prevState.usersList, newUser],
-      passwordCount: prevState.passwordCount + 1,
       websiteInput: '',
       usernameInput: '',
       passwordInput: '',
@@ -53,11 +49,18 @@ class PasswordManager extends Component {
   deleteUser = id => {
     this.setState(prevState => ({
       usersList: prevState.usersList.filter(eachUser => eachUser.id !== id),
-      passwordCount: prevState.passwordCount - 1,
     }))
   }
 
-  onChangeSearchInput = event => {}
+  onChangeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
+  toggle = () => {
+    this.setState(prevState => ({
+      isChecked: !prevState.isChecked,
+    }))
+  }
 
   render() {
     const {
@@ -65,8 +68,22 @@ class PasswordManager extends Component {
       usernameInput,
       passwordInput,
       usersList,
-      passwordCount,
+      searchInput,
+      isChecked,
     } = this.state
+
+    let filteredLists = []
+    let passwordCount = 0
+
+    if (searchInput === ' ') {
+      filteredLists = usersList
+      passwordCount = usersList.length
+    } else {
+      filteredLists = usersList.filter(eachUser =>
+        eachUser.website.toLowerCase().includes(searchInput.toLowerCase()),
+      )
+      passwordCount = filteredLists.length
+    }
 
     return (
       <div className="app-container">
@@ -78,6 +95,13 @@ class PasswordManager extends Component {
           />
         </div>
         <div className="password-generator-container">
+          <div className="password-manager-icon-container1">
+            <img
+              className="password-manager-icon1"
+              src="https://assets.ccbp.in/frontend/react-js/password-manager-sm-img.png"
+              alt="password manager"
+            />
+          </div>
           <form className="password-form" onSubmit={this.onClickSubmit}>
             <h1 className="heading">Add New Password</h1>
             <div className="input-container">
@@ -126,7 +150,7 @@ class PasswordManager extends Component {
               </label>
               <input
                 id="password"
-                type="text"
+                type="password"
                 className="input-field"
                 placeholder="Enter Password"
                 onChange={this.onChangePasswordInput}
@@ -139,9 +163,9 @@ class PasswordManager extends Component {
               </button>
             </div>
           </form>
-          <div className="password-manager-icon-container">
+          <div className="password-manager-icon-container2">
             <img
-              className="password-manager-icon"
+              className="password-manager-icon2"
               src="https://assets.ccbp.in/frontend/react-js/password-manager-lg-img.png "
               alt="password manager"
             />
@@ -173,7 +197,12 @@ class PasswordManager extends Component {
 
           <div className="input-label-container">
             <div className="check-box-container">
-              <input id="checkbox" type="checkbox" className="checkbox-input" />
+              <input
+                id="checkbox"
+                type="checkbox"
+                className="checkbox-input"
+                onClick={this.toggle}
+              />
               <label className="check-box-label" htmlFor="checkbox">
                 Show Passwords
               </label>
@@ -191,11 +220,12 @@ class PasswordManager extends Component {
             </div>
           ) : (
             <ul className="un-ordered-list">
-              {usersList.map(eachUser => (
+              {filteredLists.map(eachUser => (
                 <PasswordItem
                   eachUser={eachUser}
                   key={eachUser.id}
                   deleteUser={this.deleteUser}
+                  isChecked={isChecked}
                 />
               ))}
             </ul>
