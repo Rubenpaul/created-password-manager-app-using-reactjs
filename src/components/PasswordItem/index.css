@@ -10,6 +10,11 @@
   margin-right: 10px;
   margin-top: 10px;
 }
+@media screen and (max-width: 500px) {
+  .list-item {
+    width: 100%;
+  }
+}
 .details-container {
   display: flex;
   align-items: center;
@@ -53,4 +58,8 @@
 .delete-icon {
   height: 20px;
   width: 20px;
+}
+.stars-image {
+  height: 9px;
+  width: 60%;
 }
